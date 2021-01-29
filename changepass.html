@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>
+            Login Page
+        </title>
+        <script>
+            function valid()
+            {
+		var pno=document.getElementById("pno").value;
+                var cupass=document.getElementById("cupass").value;
+                var chpass=document.getElementById("chpass").value;
+		if(!pno.match(/^\d{10}$/))
+                {
+               
+                    window.alert("enter valid phone no.");
+                    return false;
+                }
+		
+		if(cupass.length<5) 
+		{
+		 	window.alert("password length is atleast 5 ");
+			return false;
+		}
+		if(chpass.length<5) 
+		{
+		 	window.alert("password length is atleast 5 ");
+			return false;
+		}
+		
+		return true;
+  	     }
+        </script>
+    </head>
+<body bgcolor="#e6e6fa">
+<form method="post" action="changepassphp.php" onsubmit="return valid()">
+Phone No.:<input type="text" id="pno" name="pno"><br><br>
+Current Password:<input type="password" id="cupass" name="cupass"><br><br>
+Change Password:<input type="password" id="chpass" name="chpass"><br><br>
+<input type="submit" value="change">
+<input type="reset" value="Cancel"><br><br>
+</form>
+</body>

@@ -1,0 +1,119 @@
+
+<html>
+    <head>
+        <title>
+            Donor Registration
+        </title>
+        <script>
+            function validate()
+            {
+                var fn=document.myform.fn.value;
+                var ln=document.myform.ln.value;
+                var g=document.myform.g;
+	        var bg=document.myform.bg;
+		var able=document.myform.able;
+		var age=document.myform.age.value;
+		var phoneno=document.myform.pno.value;
+                var email=document.myform.email.value;
+                var pass=document.myform.pass.value; 
+                var dist=document.myform.dist.value;
+		
+                if(fn=="" || fn==null)
+                {
+                    window.alert("enter first name.");
+                    return false;
+                }
+
+                if(ln=="" || ln==null)
+                {
+                    window.alert("enter last name.");
+                    return false;
+                }
+
+
+                if( ( g[0].checked == false ) && ( g[1].checked == false ) )
+		{
+			window.alert ( "Please choose your Gender: Male or Female" );
+			return false;
+		}
+		
+		 
+                if(age<17)
+                {
+                    window.alert("to be a donor u should be 17 years old or elder");
+                    return false;
+                }
+		  if( ( g[0].checked == false ) && ( g[1].checked == false ) && ( g[2].checked == false ) && ( g[3].checked == false ) && ( g[4].checked == false ) && ( g[5].checked == false )&& ( g[6].checked == false )&& ( g[7].checked == false ) )
+		{
+			window.alert ( "Please choose your blood group" );
+			return false;
+		}
+
+		if(!phoneno.match(/^\d{10}$/))
+                {
+               
+                    window.alert("enter valid phone no.");
+                    return false;
+                }
+		
+		if(!email.match(/\S+@\S+\.\S+/))
+		{
+ 			window.alert("enter valid email address.");
+                        return false;
+		}
+               
+		if(pass.length < 5)
+		{
+		 	window.alert("password length is atleast 5 ");
+			return false;
+		}
+
+		
+		if(dist.length==0)
+                {
+                    window.alert("enter district.")
+                    return false;
+                }
+
+		if( ( able[0].checked == false ) && ( able[1].checked == false ) )
+		{
+			alert ( "Please choose your option: yes or no" );
+			return false;
+		}
+		
+		return true;
+          
+
+            }
+        </script>
+    </head>
+    <body bgcolor="#e6e6fa">
+        <h2><b>Every Donor is a Life saver.</b></h2><br><br>
+        <form name="myform" method="post" action="donorregphp.php" onsubmit="return validate()">
+            Enter First Name:<input type="text" id="fn" name="fn"><br><br>
+            Enter Last Name:<input type="text" id="ln" name="ln"><br><br>
+            Gender:<input type="radio" id="g" name="g" value="male">Male
+            <input type="radio" id="g" name="g" value="female">Female<br><br> 
+	    Age:<input type="number" id="age" name="age"><br><br> 
+	    
+            Blood Group:<input type="radio" id="bg" name="bg" value="O+">O+
+            <input type="radio" id="bg" name="bg" value="O-">O- 
+	    <input type="radio" id="bg" name="bg" value="A+">A+
+	    <input type="radio" id="bg" name="bg" value="A-">A-
+	    <input type="radio" id="bg" name="bg" value="B+">B+
+	    <input type="radio" id="bg" name="bg" value="B-">B-
+            <input type="radio" id="bg" name="bg" value="AB+">AB+
+	    <input type="radio" id="bg" name="bg" value="AB-">AB-<br><br>
+	    phone no:<input type="text" id="pno" name="pno"><br><br>
+            Email:<input type="text" id="email" name="email"><br><br>
+            Password:<input type="password" id="pass" name="pass"><br><br>
+            district:<input type="text" id="dist" name="dist"><br><br>
+	    able to help anywhere:<input type="radio" id="able" name="able" value="yes">Yes
+            <input type="radio" id="able" name="able" value="no">No<br><br> 
+	    
+            <input type="submit" value="Register">
+        </form>
+
+
+    </body>
+</html>

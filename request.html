@@ -1,0 +1,54 @@
+<html>
+ <head>
+        <title>
+           Request page
+        </title>
+        <script>
+            function validate()
+            {
+		var g=document.myform.bg;
+		var dist=document.myform.dist.value;
+		var phoneno=document.myform.pno.value;
+		if( ( g[0].checked == false ) && ( g[1].checked == false ) && ( g[2].checked == false ) && ( g[3].checked == false ) && ( g[4].checked == false ) && ( g[5].checked == false ) && ( g[6].checked == false ) && ( g[7].checked == false ))
+		{
+			window.alert ( "Please choose bloodgroup" );
+			return false;
+		}
+		
+		if(dist.length==0)
+                {
+                    window.alert("enter district.")
+                    return false;
+                }
+		
+		if(!phoneno.match(/^\d{10}$/))
+                {
+               
+                    window.alert("enter valid phone no.");
+                    return false;
+                }
+		
+		return true;
+             }
+	 </script>
+   </head>
+
+   
+ <body bgcolor="#e6e6fa">
+  <form name="myform" method="post" action="blooddonorsphp.php" onsubmit="return validate()">
+            <h1>We are here to provide details of blood donors ,you are searching for!</h1>  
+	    Blood Group:<input type="radio" id="bg" name="bg" value="O+">O+
+            <input type="radio" id="bg" name="bg" value="O-">O- 
+	    <input type="radio" id="bg" name="bg" value="A+">A+
+	    <input type="radio" id="bg" name="bg" value="A-">A-
+	    <input type="radio" id="bg" name="bg" value="B+">B+
+	    <input type="radio" id="bg" name="bg" value="B-">B-
+            <input type="radio" id="bg" name="bg" value="AB+">AB+
+	    <input type="radio" id="bg" name="bg" value="AB-">AB-<br><br>
+	    </select>  <br><br>    
+            district:<input type="text" id="dist" name="dist"><br><br>
+	    phone no:<input type="text" id="pno" name="pno"><br><br>
+            <input type="submit" value="Request">
+        </form>
+ </body>
+</html>

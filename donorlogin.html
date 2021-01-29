@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>
+            Login Page
+        </title>
+        <script>
+            function valid()
+            {
+                var pno=document.getElementById("pno").value;
+                var pass=document.getElementById("pass").value;
+		 if(!pno.match(/^\d{10}$/))
+                {
+               
+                    window.alert("enter valid phone no.");
+                    return false;
+                }
+		
+		if(pass.length < 5)
+		{
+		 	window.alert("password length is atleast 5 ");
+			return false;
+		}
+		return true;
+  	     }
+        </script>
+    </head>
+<body bgcolor="#e6e6fa">
+<form method="post" action="donorloginphp.php" onsubmit="return valid()">
+USER PHONENO:<input type="text" id="pno" name="pno"><br><br>
+PASSWORD:<input type="password" id="pass" name="pass"><br><br>
+<input type="submit" value="Login">
+<input type="reset" value="Cancel"><br><br>
+</form>
+</body>
